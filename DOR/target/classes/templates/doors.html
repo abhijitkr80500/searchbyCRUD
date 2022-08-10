@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Door Management System</title>
+
+<style>
+body {background-color: rgb(192, 192, 192);}
+h1   {color: blue;}
+table, th, td{ border:1px solid blue;}
+</style>
+
+</head>
+<body>
+	<div >
+		<div >
+			<h1> List Students </h1>
+		</div>
+		<div >
+			<div >
+			<a th:href = "@{/doors/new}" >Add Door</a>		
+			
+			</div>
+		</div>
+		<table >
+			<thead >
+			<tr>
+				<th> ID</th>
+				<th> Door Name</th>
+				<th> Door Area Name</th>
+				<th>Date</th>
+				<th> Entry</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each = "door: ${doors}">
+				<td th:text = "${door.id}"> </td>
+				<td th:text = "${door.DoorName}"> </td>
+				<td th:text = "${door.AreaName}"> </td>
+				<td th:text = "${door.Date}"> </td>
+				<td th:text = "${door.entry}"> </td>
+				<td>
+					<a th:href = "@{/doors/edit/{id}(id=${door.id})}"
+					>UPDATE</a>
+				
+					<a th:href = "@{/doors/{id}(id=${door.id})}"
+					>DELETE</a>
+				</td>
+				   
+				
+			 </tr>
+		
+		</tbody>
+		
+		</table>
+	
+	</div>
+
+</body>
+</html>

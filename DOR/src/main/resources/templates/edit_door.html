@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Door Management System</title>
+
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+form   {border: 20px}
+</style>
+</head>
+<body>
+
+			<h1 > Update New Door</h1>
+		
+			    <form th:action="@{/doors/{id}(id=${door.id})}" th:object = "${door}" method="POST"  >
+			    	
+			    	<div>
+			    	 <label> DoorName</label>	<br>
+			    		<input type ="text" name= "DoorName" 
+			    		th:field = "*{DoorName}" 
+			    		placeholder = "enter DoorName"
+			    		required="required" 
+							maxlength="7"
+							minlength="3"
+							>
+			    	</div>
+			    
+			    <div>
+			    	 <label> AreaName</label>	<br>
+			    		<input type ="text" name= "AreaName" 
+			    		th:field = "*{AreaName}" 
+			    		placeholder = "enter AreaName"
+			    		required="required"
+			    		>
+			    	</div>
+			    	
+			    	<div >
+			    	 <label> Date</label>	<br>
+			    		<input type ="text" name= "Date" 
+			    		th:field = "*{Date}" 
+			    		placeholder = "enter Date"
+			    		required="required">
+			    	</div>
+			    	
+			    	<div>
+			    	 <label> Enable or Disable</label>	<br>
+			    	<!-- 	 <input type ="text" name= "IsEnable" 
+			    		th:field = "*{IsEnable}" 
+			    		placeholder = "Enable" > -->
+			    		 Enter Entry : <input type="radio" name="IsEnable" value="True" >Enable
+                  					  <input type="radio" name="IsEnable" value="False" >Disable  
+			    		
+			    	</div>
+			    		<br>
+						<br>
+						
+			    <div >
+			    	<button type= "submit" class = "btn btn-primary">
+			    		Submit
+			    	</button>
+			    </div>
+			    
+			    
+			    </form>
+
+			
+
+
+</body>
+</html>

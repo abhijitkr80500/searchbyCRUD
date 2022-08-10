@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Door Management System</title>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+form   {border: 20px}
+</style>
+</head>
+<body>
+
+<br>
+<br>
+				<h1 > Create New Door </h1>
+				
+					<form th:action="@{/doors}" th:object = "${door}" method="POST">
+						<div >
+							<label> Door Name </label><br>
+							<input
+							type = "text"
+							name = "DoorName"
+							th:field = "*{DoorName}"
+							placeholder="Enter Door Name"
+							required="required" 
+							maxlength="7"
+							minlength="3"
+							
+							
+							/><br>
+						</div>
+						
+						<div >
+							<label> AreaName </label><br>
+							<input
+							type = "text"
+							name = "AreaName"
+							th:field = "*{AreaName}"
+							placeholder="Enter AreaName"
+							required="required" 
+							autocomplete="on"
+							/><br>
+						</div>
+						
+						<div >
+							<label> Date </label><br>
+							<input
+							type = "date"
+							name = "Date"
+							th:field = "*{Date}"
+							min="2020-01-01"
+							max="2025-12-31"
+							placeholder="Enter Date" 
+							/><br>
+						</div>
+						
+						<div >
+							<label> Enable or Disable </label><br>
+							
+						   <!-- <input
+							type = "text"
+							name = "IsEnable"
+							th:field = "*{IsEnable}"
+							placeholder="Enable" 
+							required="required"  
+							/>  <br> -->
+							
+							 Enter Entry : <input type="radio" name="IsEnable" value="True" >Enable
+                  					     <input type="radio" name="IsEnable" value="False" >Disable  
+					
+						
+						</div>
+						<br>
+						<br>
+						
+						<div>
+							<button type="submit">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+			
+</body>
+</html>
